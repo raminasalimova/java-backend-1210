@@ -1,0 +1,56 @@
+package az.edu.turing;
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class ReplaceRandomly {
+    public static void main(String[] args){
+        // Creating an array
+        String[] students = {"Emin", "Jale", "Osman", "Samir", "Ayla", "Leman"};
+
+        // Creating a Scanner object to input names
+        Scanner scanner = new Scanner(System.in);
+
+        // Creating a Random object to change places
+        Random random = new Random();
+
+        // Process
+        for (String student : students) {
+            System.out.println(student);
+        }
+
+        System.out.println("\nEnter a student name: ");
+        String studentName = scanner.nextLine();
+
+        // Name was found or not?
+        boolean found = false;
+        int index = 0;
+        for (int i = 0; i < students.length; i++) {
+            if (students[i].equals(studentName)) {
+                found = true;
+                index = i;
+                break;
+            }
+            continue;
+        }
+        // Check with if is found true or false
+        int newPlace = 0;
+        if (found) {
+            newPlace = random.nextInt(students.length);
+            // Replace
+            String temp = students[index];
+            students[index] = students[newPlace];
+            students[newPlace] = temp;
+
+            // Print new list
+            System.out.println("\nUpdated list: ");
+            for (String student : students) {
+                System.out.println(student);
+            }
+        } else {
+            System.out.println("The student name is not found");
+        }
+
+        scanner.close();
+    }
+}
