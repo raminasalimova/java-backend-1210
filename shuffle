@@ -1,0 +1,27 @@
+package az.edu.turing;
+
+import java.util.Random;
+
+public class RandomReplaceNew {
+
+    public static void main(String[] args) {
+
+        String[] students = {"Rəvan Agayev", "Gülər Əbilova", "Yetər Nəbiyeva", "Mirzəyeva Dilbər", "Ruslan Çərkəzov", "Sənubər Abbasova", "Fəxri Babayev", "Lalə Həmidova", "Günay İskəndərova", "Ramina Səlimova", "Tural Nəzərov", "Rəvan Əliyev", "İbrahim Ələkbərov", "Ella Piriyeva", "Aynur Məmmədova", "Ömər Ələkbərov", "Famil Məmmədov", "Rena Mehdiyeva", "ƏliMurad", "Seyran Xəlilzadə", "Hüseynov Məhəmməd", "Pərvin Bədəlova", "Nicat Məcidov"};
+        Random random = new Random();
+
+        // Process
+        for (int i = students.length - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            String temp = students[i];
+            students[i] = students[j];
+            students[j] = temp;
+        }
+
+        // Shuffled/updated array
+        System.out.println("Updated array is: ");
+        for (String student : students) {
+            System.out.println(student);
+        }
+
+    }
+}
